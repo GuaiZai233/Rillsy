@@ -22,6 +22,15 @@ WARNING: This project is still WIP. Please DO NOT deploy at this time.
 
 ~~原因是主包晚上要陪小兽太~~
 
+# Plugin Menu
+ - rillsy_plugin_test
+ - rillsy_plugin_ncm_link
+ - rillsy_plugin_ithome_link
+ - rillsy_plugin_bili_link
+ - nonebot-plugin-ithome-rss
+ - nonebot_plugin_githubcard
+ - nonebot_plugin_b23
+
 # License
 see License
 
