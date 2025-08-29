@@ -14,32 +14,20 @@
 <div align="left">
 
 
-# Deployment
+## Deployment
 See [Nonebot Docs](https://nonebot.dev/).
 
-# Notifications
-WARNING: This project is still WIP. Please DO NOT deploy at this time.
-
-~~原因是主包晚上要陪小兽太~~
-
-# Plugin Menu
+## Plugin Menu
  - rillsy_plugin_test
  - rillsy_plugin_ncm_link
  - rillsy_plugin_ithome_link
  - rillsy_plugin_bili_link
- - nonebot-plugin-ithome-rss
- - nonebot_plugin_githubcard
- - nonebot_plugin_b23
+ - [Stewawa/nonebot-plugin-ithome-rss](https://github.com/Stewawa/nonebot-plugin-ithome-rss) ([AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html))
+ - [ElainaFanBoy/nonebot_plugin_githubcard0](https://github.com/ElainaFanBoy/nonebot_plugin_githubcard) ([MIT License](https://mit-license.org/))
+ - [eya46/nonebot_plugin_b23](https://github.com/eya46/nonebot_plugin_b23) ([MIT License](https://mit-license.org/))
 
-# License
+## License
 see License
 
-# Commit
+## Commit
 Please use Angular style.
-
-# Acknowledgements
-**[eya46/nonebot_plugin_b23](https://github.com/eya46/nonebot_plugin_b23)** ([MIT License](https://mit-license.org/))
-
-**[ElainaFanBoy/nonebot_plugin_githubcard0](https://github.com/ElainaFanBoy/nonebot_plugin_githubcard)** ([MIT License](https://mit-license.org/))
-
-**[Stewawa/nonebot-plugin-ithome-rss](https://github.com/Stewawa/nonebot-plugin-ithome-rss)** ([AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html))
