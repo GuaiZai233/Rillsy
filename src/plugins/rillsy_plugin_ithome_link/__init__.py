@@ -103,6 +103,7 @@ async def fetch_title_detail_by_api(major: str, minor: str) -> tuple[str, str]:
         title = title_el.text.strip() if title_el is not None and title_el.text else ""
         detail_html = detail_el.text.strip() if detail_el is not None and detail_el.text else ""
         detail = html2text_converter.handle(detail_html).strip()
+        detail = detail.replace("*", "")
         return title, detail
     except Exception:
         m_title = re.search(r"<title>(.*?)</title>", content, re.S | re.I)
@@ -110,6 +111,7 @@ async def fetch_title_detail_by_api(major: str, minor: str) -> tuple[str, str]:
         title = m_title.group(1).strip() if m_title else ""
         detail_html = m_detail.group(1).strip() if m_detail else ""
         detail = html2text_converter.handle(detail_html).strip()
+        detail = detail.replace("*", "")
         return title, detail
 
 
