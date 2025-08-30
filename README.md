@@ -29,5 +29,10 @@ See [Nonebot Docs](https://nonebot.dev/).
 ## License
 see License
 
+## Fonts
+This project uses [Source Han Sans](https://github.com/adobe-fonts/source-han-sans), JiangChengZhiYinTi.
+
+Licensed under the [SIL Open Font License, Version 1.1](./OFL.txt).
+
 ## Commit
 Please use Angular style.

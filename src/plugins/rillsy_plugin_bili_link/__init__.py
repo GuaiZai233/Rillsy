@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import re
 import io
 import base64
@@ -111,7 +112,7 @@ async def _fetch_video(bvid: Optional[str], aid: Optional[int], client: httpx.As
 if enable_pic == True:
 
     # ========= PICTURES GENERATE ============
-
+    """
     _FONT_CANDIDATES = [
         "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
         "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
@@ -122,7 +123,6 @@ if enable_pic == True:
         "/System/Library/Fonts/PingFang.ttc",
     ]
 
-
     def _load_font(size: int):
         for path in _FONT_CANDIDATES:
             try:
@@ -130,7 +130,18 @@ if enable_pic == True:
             except Exception:
                 continue
         return ImageFont.load_default()
+    """
 
+    PLUGIN_DIR = os.path.dirname(__file__)
+    TITLE_FONT_PATH = os.path.join(PLUGIN_DIR, "title_font.ttf")
+    ARTICLE_FONT_PATH = os.path.join(PLUGIN_DIR, "article_font.otf")
+    FOOT_FONT_PATH = os.path.join(PLUGIN_DIR, "foot.ttf")
+
+    def _load_font(path: str, size: int):
+     try:
+         return ImageFont.truetype(path, size=size)
+     except Exception:
+          return ImageFont.load_default()
 
     def _wrap_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont, max_width: int) -> List[str]:
         lines: List[str] = []
@@ -195,10 +206,10 @@ if enable_pic == True:
         GAP = 14
 
         # font
-        font_title = _load_font(44)
-        font_meta = _load_font(30)
-        font_desc = _load_font(30)
-        font_footer = _load_font(20)
+        font_title = _load_font(TITLE_FONT_PATH, 44)
+        font_meta = _load_font(ARTICLE_FONT_PATH, 30)
+        font_desc = _load_font(ARTICLE_FONT_PATH, 30)
+        font_footer = _load_font(FOOT_FONT_PATH, 20)
 
         # cover
         cover_h = 0
@@ -288,7 +299,12 @@ if enable_pic == True:
         y += 4
         draw.line((M, y, W - M, y), fill=(230, 230, 230), width=2)
         y += GAP
-        _ = _draw_lines(lines_footer, font_footer, y)
+        # Draw footer lines with color matching ithome_link (120, 120, 120)
+        for line in lines_footer:
+            draw.text((M, y), line, font=font_footer, fill=(120, 120, 120))
+            bbox = draw.textbbox((M, y), line, font=font_footer)
+            line_h = bbox[3] - bbox[1]
+            y += line_h + GAP
 
         return _img_to_b64(img)
 
